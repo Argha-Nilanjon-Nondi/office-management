@@ -10,10 +10,12 @@ use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\NewAccessToken;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Support\Str;
+use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable
 {
-    use HasApiTokens,HasUuids, HasFactory, Notifiable;
+    use HasRoles,HasApiTokens,HasUuids, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
