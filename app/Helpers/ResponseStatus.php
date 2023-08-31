@@ -50,13 +50,16 @@ class ResponseStatus {
     "email-already-exit" => [
       "code" => 3008,
       "msg" => "email is already exist"
-    ]
+    ],
+    "role-not-allowed" => [
+      "code" => 3009,
+      "msg" => "role is not allowed for this user"],
   ];
 
   public static function set_status(Response $response, string $action_name) {
-    $msg=self::$custom_code[$action_name]["msg"];
-    $code=self::$custom_code[$action_name]["code"];
-    $response->header("Custom-Status-Message",$msg);
+    $msg = self::$custom_code[$action_name]["msg"];
+    $code = self::$custom_code[$action_name]["code"];
+    $response->header("Custom-Status-Message", $msg);
     $response->header("Custom-Status-Code", $code);
     return $response;
   }
