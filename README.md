@@ -8,22 +8,15 @@ A brief description of what this project does and who it's for
 
 #### Login a user
 
-```http
-  POST /api/login/
-```
 
-##### Request Body
-```json
-{
-	"email": "<email>",
-	"password": "<password>"
-}
-```
-##### Request Header
-```http
-Content-Type:application/json
-Accept:application/json
-```
-##### Response Header
-```
+To log in to the API endpoint using cURL, you can use the following command:
+
+```bash
+curl -X POST 'http://127.0.0.1:8000/api/login' \
+     -H 'Content-Type: application/json' \
+     -H 'Accept: application/json' \
+     -d '{
+             "email": "<email>",
+             "password": "<password>"
+         }'
 ```

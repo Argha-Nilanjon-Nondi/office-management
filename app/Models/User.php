@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\NewAccessToken;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
- 
+use Illuminate\Support\Str;
+
 class User extends Authenticatable
 {
     use HasApiTokens,HasUuids, HasFactory, Notifiable;
@@ -43,4 +45,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    public function createToken(string $name, array $abilities = ['*'], DateTimeInterface $expiresAt = null)
+    {
+        $plainTextToken = sprintf(
+            '%s%s%s',
+            config('sanctum.token_prefix', ''),
+            $tokenEntropy = Str::random(40),
+            hash('crc32b', $tokenEntropy)
+        );
+        
+        $hashedToken=hash('sha256', $plainTextToken);
+
+        $token = $this->tokens()->create([
+            'name' => $name,
+            'token' => hash('sha256', $hashedToken),
+            'abilities' => $abilities,
+            'expires_at' => $expiresAt,
+        ]);
+        
+
+        return new NewAccessToken($token,$hashedToken);
+    } 
 }
