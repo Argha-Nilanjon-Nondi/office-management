@@ -2,11 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProjectController;
-
+use App\Jobs\QueueEmailPassword;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +39,14 @@ Route::prefix('admin')->middleware(['auth:sanctum','role:admin'])->group(functio
     });
     */
     
+});
+
+Route::get("test",function(Request $request){
+  $username="username";
+  $password="password";
+  $email="example@jio.com";
+  dispatch(new QueueEmailPassword($email,$username,$password));
+  return "Hi email";
 });
 
 

@@ -16,9 +16,13 @@ class PasswordEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $username;
+    public $password;
+    
+    public function __construct($username,$password)
     {
-        //
+        $this->username=$username;
+        $this->password=$password;
     }
 
     /**
@@ -27,7 +31,7 @@ class PasswordEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Password Email',
+            subject: 'Password Email for user',
         );
     }
 
@@ -37,7 +41,8 @@ class PasswordEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'email.password',
+            with: ['username' => $this->username,"password"=>$this->password],
         );
     }
 

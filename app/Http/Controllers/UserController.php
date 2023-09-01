@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Helpers\ResponseStatus;
+use App\Jobs\QueueEmailPassword;
 use App\Models\User;
 use App\Models\Role;
 
@@ -44,7 +45,7 @@ class UserController extends Controller
     $role = Role::findByParam(["name" => $rolename]);
     $user->assignRole($role);
     
-    \Log::error($password);
+    dispatch(new QueueEmailPassword($email,$username,$password));
     
     $response=new Response(null,200);
     return ResponseStatus::set_status($response,"user-create-success");
