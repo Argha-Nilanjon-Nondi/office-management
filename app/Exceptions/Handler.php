@@ -2,9 +2,9 @@
 
 namespace App\Exceptions;
 
+use Throwable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Spatie\Permission\Exceptions\UnauthorizedException;
-use Throwable;
 use Illuminate\Http\Response;
 use App\Helpers\ResponseStatus;
 
@@ -46,19 +46,25 @@ class Handler extends ExceptionHandler
         $response = new Response(null, 401);
         return ResponseStatus::set_status($response, "role-not-allowed");
       }
-    }
-    
-    
-  }
-
-  public function render($request, Throwable $exception) {
-   if ($request->expectsJson()) {
-      return $this->handleApiException($request, $exception);
     } 
     
-   return parent::render($request, $exception);
-    
-     
-}
+    else {
+      return parent::render($request, $exception);
+    }
+
+
+  }
+
+
+  public function render($request, Throwable $exception) {
+    if ($request->expectsJson()) {
+      return $this->handleApiException($request, $exception);
+    }
+
+    return parent::render($request, $exception);
+
+  }
+
+
 
 }

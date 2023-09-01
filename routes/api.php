@@ -20,21 +20,19 @@ use App\Http\Controllers\ProjectController;
 Route::post("login",[UserController::class,"login"]);
 
 Route::prefix('admin')->middleware(['auth:sanctum','role:admin'])->group(function () {
-   // Route::get('/', [UserController::class, 'index']);  // Admin Dashboard
 
     Route::prefix('user')->group(function () {
         Route::post('add', [UserController::class, 'add']);
     });
 
     Route::prefix('team')->group(function () {
-        Route::post('add', [TeamController::class, 'add']); // Create team
+        Route::post('add', [TeamController::class, 'add']);
     });
-/*
+
     Route::prefix('project')->group(function () {
-        Route::post('/', [ProjectController::class, 'store']); // Create project
-        Route::post('/{id}', [ProjectController::class, 'update']); // Update project
+        Route::post('add', [ProjectController::class, 'add']);
+        Route::post('assign', [ProjectController::class, 'assign']);
     });
-    */
     
 });
 

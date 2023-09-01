@@ -12,5 +12,5 @@ class Team extends Model
     protected $primaryKey = 'team_id';
     public $incrementing = false;
     protected $keyType = 'uuid';
-    protected $fillable = [];
+    protected $fillable = ["team_name","team_info"];
 }

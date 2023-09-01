@@ -12,4 +12,5 @@ class Project extends Model
     protected $primaryKey = 'project_id';
     public $incrementing = false;
     protected $keyType = 'uuid';
+    protected $fillable =["project_name","project_info"];
 }

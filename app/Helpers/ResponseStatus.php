@@ -19,6 +19,10 @@ class ResponseStatus {
       "code" => 2002,
       "msg" => "team is created"
     ],
+    "project-create-success" => [
+      "code" => 2003,
+      "msg" => "project is created"
+    ],
     "username-invalid" => [
       "code" => 3000,
       "msg" => "username is not valid"
