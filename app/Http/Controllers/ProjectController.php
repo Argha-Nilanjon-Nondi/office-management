@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Helpers\ResponseStatus;
 use App\Models\Project;
-use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -17,7 +16,8 @@ class ProjectController extends Controller
       
       Project::create([
         "project_name"=>$project_name,
-        "project_info"=>$project_info
+        "project_info"=>$project_info,
+        "project_status"=>null
       ]);
       
       $response=new Response(null,200);
@@ -28,6 +28,7 @@ class ProjectController extends Controller
     {
       $team_id=$request->input("team_id");
       $project_id=$request->input("project_id");
+      
       
       
       
