@@ -23,15 +23,21 @@ Route::prefix('admin')->middleware(['auth:sanctum','role:admin'])->group(functio
 
     Route::prefix('user')->group(function () {
         Route::post('add', [UserController::class, 'add']);
+        Route::post('assign', [TeamController::class, 'assign']);
     });
 
     Route::prefix('team')->group(function () {
         Route::post('add', [TeamController::class, 'add']);
+        Route::post('assign', [TeamController::class, 'assign']);
     });
 
     Route::prefix('project')->group(function () {
         Route::post('add', [ProjectController::class, 'add']);
         Route::post('assign', [ProjectController::class, 'assign']);
+        Route::prefix('log')->group(function (){
+              Route::post('add', [ProjectController::class, 'add_log']);
+        })
+        
     });
     
 });

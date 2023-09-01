@@ -23,6 +23,14 @@ class ResponseStatus {
       "code" => 2003,
       "msg" => "project is created"
     ],
+    "project-assign-success"=> [
+      "code" => 2004,
+      "msg" => "project is assigned to the team"
+    ],
+    "user-assign-success"=> [
+      "code" => 2005,
+      "msg" => "user is assigned to the team"
+    ],
     "username-invalid" => [
       "code" => 3000,
       "msg" => "username is not valid"
