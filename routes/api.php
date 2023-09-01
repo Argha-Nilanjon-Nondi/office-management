@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProjectController;
-use App\Jobs\QueueEmailPassword;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,15 +23,13 @@ Route::prefix('admin')->middleware(['auth:sanctum','role:admin'])->group(functio
    // Route::get('/', [UserController::class, 'index']);  // Admin Dashboard
 
     Route::prefix('user')->group(function () {
-        Route::post('add', [UserController::class, 'add']); // Create user
-        //Route::post('/{id}', [UserController::class, 'update']); // Update user
-    });
-/*
-    Route::prefix('team')->group(function () {
-        Route::post('/', [TeamController::class, 'store']); // Create team
-        Route::post('/{id}', [TeamController::class, 'update']); // Update team
+        Route::post('add', [UserController::class, 'add']);
     });
 
+    Route::prefix('team')->group(function () {
+        Route::post('add', [TeamController::class, 'add']); // Create team
+    });
+/*
     Route::prefix('project')->group(function () {
         Route::post('/', [ProjectController::class, 'store']); // Create project
         Route::post('/{id}', [ProjectController::class, 'update']); // Update project
@@ -42,10 +39,6 @@ Route::prefix('admin')->middleware(['auth:sanctum','role:admin'])->group(functio
 });
 
 Route::get("test",function(Request $request){
-  $username="username";
-  $password="password";
-  $email="example@jio.com";
-  dispatch(new QueueEmailPassword($email,$username,$password));
   return "Hi email";
 });
 

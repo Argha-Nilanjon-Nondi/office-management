@@ -15,6 +15,10 @@ class ResponseStatus {
       "code" => 2001,
       "msg" => "user is created"
     ],
+    "team-create-success" => [
+      "code" => 2002,
+      "msg" => "team is created"
+    ],
     "username-invalid" => [
       "code" => 3000,
       "msg" => "username is not valid"

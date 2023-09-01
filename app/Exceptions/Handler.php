@@ -31,7 +31,7 @@ class Handler extends ExceptionHandler
     });
   }
 
-  private function handleApiException($request, Throwable $exception) {
+  public function handleApiException($request, Throwable $exception) {
 
     $methodname = $exception->getTrace()[0]['function'];
     //\Log::error($methodname);
@@ -55,10 +55,10 @@ class Handler extends ExceptionHandler
    if ($request->expectsJson()) {
       return $this->handleApiException($request, $exception);
     } 
-    else {
-      $retval = parent::render($request, $exception);
-    }
-    return $retval;
+    
+   return parent::render($request, $exception);
+    
+     
 }
 
 }
