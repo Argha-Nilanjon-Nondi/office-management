@@ -20,8 +20,8 @@ $user = User::create([
 php artisan db:seed UserSeeder
 ```
 
-open database/seeders/RoleSeeder.php and replace with email to set as admin role
-```bash
+open database/seeders/AssignRoleSeeder.php and replace with email to set as admin role
+```php
 $email = 'alex_admin@gmail.com';
 $user = User::where('email', $email)->first();
 $role = Role::findByParam(["name" => 'admin']);
