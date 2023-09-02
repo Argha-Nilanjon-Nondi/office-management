@@ -36,7 +36,7 @@ Route::prefix('admin')->middleware(['auth:sanctum','role:admin'])->group(functio
         Route::post('assign', [ProjectController::class, 'assign']);
         Route::prefix('log')->group(function (){
               Route::post('add', [ProjectController::class, 'add_log']);
-        })
+        });
         
     });
     
