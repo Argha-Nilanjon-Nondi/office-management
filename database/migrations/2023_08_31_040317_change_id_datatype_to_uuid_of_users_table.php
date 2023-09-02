@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->uuid('id')->change();
-            $table->foreignUuid('user_id')->constrained()->change();
         });
     }
 

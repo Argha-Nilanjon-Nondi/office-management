@@ -3,6 +3,35 @@
 
 A brief description of what this project does and who it's for
 
+```bash
+php artisan migrate
+```
+
+open database/seeders/UserSeeder.php and replace with your desired email and password
+```php
+$user = User::create([
+      'name' => '<any-name>',
+      'password' => Hash::make('<any-password>'),
+      'email' => '<any-email>',
+    ]);
+```
+
+```bash
+php artisan db:seed UserSeeder
+```
+
+open database/seeders/RoleSeeder.php and replace with email to set as admin role
+```bash
+$email = 'alex_admin@gmail.com';
+$user = User::where('email', $email)->first();
+$role = Role::findByParam(["name" => 'admin']);
+$user->assignRole($role);
+```
+
+Run this to create appropiate roles
+```bash
+php artisan db:seed RoleSeeder
+```
 
 ## API Reference
 

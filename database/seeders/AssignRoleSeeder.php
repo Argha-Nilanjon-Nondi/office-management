@@ -14,15 +14,9 @@ class AssignRoleSeeder extends Seeder
   */
   public function run(): void
   {
-    /*
-    $email = 'argha@gmail.com';
+    $email = 'alex_admin@gmail.com';
     $user = User::where('email', $email)->first();
-    $adminRole = Role::findByParam(["name" => 'admin']);
-    $user->assignRole($adminRole); */
-    
-    $email = 'argha_boss@gmail.com';
-    $user = User::where('email', $email)->first();
-    $adminRole = Role::findByParam(["name" => 'boss']);
-    $user->assignRole($adminRole);
+    $role = Role::findByParam(["name" => 'admin']);
+    $user->assignRole($role);
   }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid("project_id")->primary()->default(DB::raw('(UUID())'));
             $table->string("project_name")->unique();
             $table->text("project_info")->nullable();
+            $table->enum("project_status",["initiate","pending","completed","dropped"])->nullable();
             $table->timestamps();
         });
     }
