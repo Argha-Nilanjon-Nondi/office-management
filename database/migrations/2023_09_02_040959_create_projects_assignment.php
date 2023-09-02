@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects_assignment', function (Blueprint $table) {
-            $table->uuid("history_id")->primary()->default(DB::raw('(UUID())'));
+            $table->uuid("assignment_id")->primary()->default(DB::raw('(UUID())'));
             $table->uuid("team_id");
             $table->uuid("project_id");
             $table->uuid("assigner_id"); // who gives the job

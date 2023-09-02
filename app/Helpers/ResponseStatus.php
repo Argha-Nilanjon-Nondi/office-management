@@ -31,9 +31,12 @@ class ResponseStatus {
       "code" => 2005,
       "msg" => "user is assigned to the team"
     ],
-    "project-log-stored"=> [
+"project-log-stored"=> [
       "code" => 2006,
       "msg" => "project log is stored"
+    ],"assignment-create-success"=> [
+      "code" => 2007,
+      "msg" => "assignment is added"
     ],
     "username-invalid" => [
       "code" => 3000,

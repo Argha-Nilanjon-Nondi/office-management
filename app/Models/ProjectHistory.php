@@ -9,6 +9,9 @@ class ProjectHistory extends Model
 {
     use HasFactory;
     protected $table = 'projects_history';
+    protected $primaryKey = 'history_id';
+    public $incrementing = false;
+    protected $keyType = 'uuid';
     protected $casts = [
         'extra' => 'array',
     ];

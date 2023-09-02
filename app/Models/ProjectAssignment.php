@@ -9,9 +9,12 @@ class ProjectAssignment extends Model
 {
     use HasFactory;
     protected $table = 'projects_assignment';
-    protected $primaryKey = 'history_id';
+    protected $primaryKey = 'assignment_id';
     public $incrementing = false;
     protected $keyType = 'uuid';
+    protected $casts = [
+        'extra' => 'array',
+    ];
     protected $fillable =[
                           "team_id",
                           "project_id",

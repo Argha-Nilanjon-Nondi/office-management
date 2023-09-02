@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProjectController;
-
+use App\Http\Controllers\AssignmentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,36 +17,41 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
-Route::post("login",[UserController::class,"login"]);
+Route::post("login", [UserController::class, "login"]);
 
-Route::prefix('admin')->middleware(['auth:sanctum','role:admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
 
-    Route::prefix('user')->group(function () {
-        Route::post('add', [UserController::class, 'add']);
-        Route::post('assign', [TeamController::class, 'assign']);
+  Route::prefix('user')->group(function () {
+    Route::post('add', [UserController::class, 'add']);
+    Route::post('assign', [TeamController::class, 'assign']);
+  });
+
+  Route::prefix('team')->group(function () {
+    Route::post('add', [TeamController::class, 'add']);
+    Route::post('assign', [TeamController::class, 'assign']);
+  });
+
+  Route::prefix('project')->group(function () {
+    Route::post('add', [ProjectController::class, 'add']);
+    Route::post('assign', [ProjectController::class, 'assign']);
+    Route::prefix('log')->group(function () {
+      Route::post('add', [ProjectController::class, 'add_log']);
     });
 
-    Route::prefix('team')->group(function () {
-        Route::post('add', [TeamController::class, 'add']);
-        Route::post('assign', [TeamController::class, 'assign']);
-    });
 
-    Route::prefix('project')->group(function () {
-        Route::post('add', [ProjectController::class, 'add']);
-        Route::post('assign', [ProjectController::class, 'assign']);
-        Route::prefix('log')->group(function (){
-              Route::post('add', [ProjectController::class, 'add_log']);
-        });
-        
-    });
-    
+  });
+  Route::prefix('assignment')->group(function () {
+    Route::post('add', [AssignmentController::class, 'add']);
+  });
+
+
 });
 
-Route::get("test",function(Request $request){
+Route::get("test", function(Request $request) {
   return "Hi email";
 });
 
 
 Route::middleware('auth:sanctum')->post('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
