@@ -14,7 +14,6 @@ To log in to the API endpoint using cURL, you can use the following command:
 ##### Request
 
 ```curl
-
 curl -X POST 'http://127.0.0.1:8000/api/login' \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json' \
@@ -22,7 +21,6 @@ curl -X POST 'http://127.0.0.1:8000/api/login' \
              "email": "<email>",
              "password": "<password>"
          }'
-         
 ```
 
 ##### Response
@@ -36,6 +34,11 @@ curl -X POST 'http://127.0.0.1:8000/api/login' \
 ```
 
 ###### header
+
+```http
+Custom-Status-Code:<Code-Number>
+Custom-Status-Message:<Action-Message>
+```
 
 # Project Title
 
