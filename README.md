@@ -10,12 +10,6 @@ php artisan migrate
 
 
 
-
-
-
-
-
-
 ## Setup an Admin
 You have to setup admin manually to use the project initially
 
@@ -65,6 +59,9 @@ Run ***AssignRoleSeeder*** to assign admin to user
 php artisan db:seed AssignRoleSeeder
 ```
 
+
+
+
 ## API Reference
 
 There is two response header ***Custom-Status-Message*** and ***Custom-Status-Code*** . They show information if the action is successful or unsuccessful . 
@@ -76,6 +73,9 @@ Set this request header for all api call :
 | --------- | --------- |
 | Content-Type | application/json |
 | Accept | application/json |
+
+
+
 
 
 ### Login a user
@@ -91,19 +91,17 @@ POST /api/login
 ##### Data
 ```json
 {
-   "email": "<email>",
-    "password": "<password>"
- }
+ "email": "<email>",
+ "password": "<password>"
+}
 ```
-
-<br>
 
 #### Response
 
 ###### Data
 ```json
 {
-  "token": "<token-string>"
+ "token": "<token-string>"
 }
 ```
 ##### Header
@@ -141,13 +139,12 @@ POST /api/admin/user/add
 ##### Data
 ```json
 {
-	"email": "<user-email>",
-	"username": "<user-name>",
-	"role": "<user-role>"
+"email": "<user-email>",
+"username": "<user-name>",
+"role": "<user-role>"
 }
 ```
 role can be **boss** , **project_manager** and **employee**
-<br>
 
 #### Response
 ##### Header
@@ -157,6 +154,9 @@ role can be **boss** , **project_manager** and **employee**
 | Custom-Status-Message | user is created |
 
 A email will be sent to **<user-email>** which contains password
+<br>
+<br>
+
 
 
 ### **Boss** - Create a new team
