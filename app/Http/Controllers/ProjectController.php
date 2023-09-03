@@ -26,13 +26,12 @@ class ProjectController extends Controller
       return ResponseStatus::set_status($response,"project-create-success");
     }
     
-    public function assign(Request $request)
+    public function assign(Request $request,$project_id)
     {
       /*
       Assign a project to a team
       */
       $team_id=$request->input("team_id");
-      $project_id=$request->input("project_id");
       
       Team::where("team_id",$team_id)->update([
         "project_id"=>$project_id
@@ -42,12 +41,20 @@ class ProjectController extends Controller
       
     }
     
-    public function add_log(Request $request)
+    public function add_log(Request $request,$team_id,$project_id)
     {
-      $data=$request->all();
-      $data["project_manager_id"]=$request->user()->id;
       
-      ProjectHistory::create($data);
+      $progress_info=$request->input("progress_info");
+      $extra=$request->input("extra");
+      $project_manager_id=$request->user()->id;
+      
+      ProjectHistory::create([
+        "project_id"=>$project_id,
+        "team_id"=>$team_id,
+        "project_manager_id"=>$project_manager_id,
+        "progress_info"=>$progress_info,
+        "extra"=>$extra
+        ]);
       
       $response=new Response(null,200);
       return ResponseStatus::set_status($response,"project-log-stored");

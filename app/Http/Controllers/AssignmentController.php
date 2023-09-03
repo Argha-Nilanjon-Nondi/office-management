@@ -10,9 +10,7 @@ use App\Models\ProjectAssignment;
 class AssignmentController extends Controller
 {
 
-  public function add(Request $request) {
-    $team_id = $request->input("team_id");
-    $project_id = $request->input("project_id");
+  public function add(Request $request,$team_id,$project_id) {
     $assigner_id = $request->user()->id;
     $worker_id = $request->input("worker_id");
     $assignment_name = $request->input("assignment_name");

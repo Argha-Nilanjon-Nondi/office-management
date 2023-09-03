@@ -27,12 +27,11 @@ class TeamController extends Controller
       return ResponseStatus::set_status($response,"team-create-success");
     }
     
-    public function assign(Request $request)
+    public function assign(Request $request,$team_id)
     {
       /*
       Assign user to a team
       */
-      $team_id=$request->input("team_id");
       $user_id=$request->input("user_id");
       
       TeamMember::create([

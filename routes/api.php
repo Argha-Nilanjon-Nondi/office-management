@@ -26,6 +26,47 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(functi
     Route::post('assign', [TeamController::class, 'assign']);
   });
 
+});
+
+Route::prefix('boss')->middleware(['auth:sanctum', 'role:boss'])->group(function () {
+
+  Route::prefix('team')->group(function () {
+    Route::post('add', [TeamController::class, 'add']);
+    Route::post('/{team_id}/assign', [TeamController::class, 'assign']);
+  });
+
+  Route::prefix('project')->group(function () {
+    Route::post('add', [ProjectController::class, 'add']);
+    Route::post('/{project_id}/assign', [ProjectController::class, 'assign']);
+  });
+
+});
+
+
+Route::prefix('project_manager')->middleware(['auth:sanctum', 'role:project_manager'])->group(function () {
+
+  Route::prefix('project')->group(function () {
+    Route::prefix('log')->group(function () {
+      Route::post('/{team_id}/{project_id}/add', [ProjectController::class, 'add_log']);
+    });
+  });
+  
+  Route::prefix('assignment')->group(function () {
+    Route::post('/{team_id}/{project_id}/add', [AssignmentController::class, 'add']);
+  });
+
+});
+
+
+
+/*
+Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
+
+  Route::prefix('user')->group(function () {
+    Route::post('add', [UserController::class, 'add']);
+    Route::post('assign', [TeamController::class, 'assign']);
+  });
+
   Route::prefix('team')->group(function () {
     Route::post('add', [TeamController::class, 'add']);
     Route::post('assign', [TeamController::class, 'assign']);
@@ -46,6 +87,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(functi
 
 
 });
+
+*/
+
 
 Route::get("test", function(Request $request) {
   return "Hi email";
