@@ -31,11 +31,14 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(functi
 Route::prefix('boss')->middleware(['auth:sanctum', 'role:boss'])->group(function () {
 
   Route::prefix('team')->group(function () {
+    Route::get('/', [TeamController::class, 'team_list']);
+    Route::get('/{team_id}', [TeamController::class, 'single_team']);
     Route::post('add', [TeamController::class, 'add']);
     Route::post('/{team_id}/assign', [TeamController::class, 'assign']);
   });
 
   Route::prefix('project')->group(function () {
+    Route::post('/', [ProjectController::class, 'project_list']);
     Route::post('add', [ProjectController::class, 'add']);
     Route::post('/{project_id}/assign', [ProjectController::class, 'assign']);
   });

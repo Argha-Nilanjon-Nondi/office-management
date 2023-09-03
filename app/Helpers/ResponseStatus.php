@@ -39,6 +39,14 @@ class ResponseStatus {
       "code" => 2007,
       "msg" => "assignment is added"
     ],
+    "team-list"=> [
+      "code" => 2008,
+      "msg" => "team list is retrieved"
+    ],
+    "single-team"=> [
+      "code" => 2009,
+      "msg" => "single team data is retrieved"
+    ],
     "username-invalid" => [
       "code" => 3000,
       "msg" => "username is not valid"

@@ -128,7 +128,6 @@ POST /api/employee/
 <br>
 
 
-
 ### **Admin** - Add User
 
 #### Request
@@ -158,8 +157,6 @@ A email will be sent to **"user-email"** which contains password
 <br>
 <br>
 
-
-
 ### **Boss** - Create a new team
 
 #### Request
@@ -187,7 +184,74 @@ POST /api/boss/team/add
 <br>
 <br>
 
+### **Boss** - Get team list
 
+#### Request
+##### URL
+
+```http
+POST /api/boss/team/
+```
+
+#### Response
+
+##### Data
+```json
+{
+"data":[
+    {
+    "team_id": "<team-id>",
+    "team_name": "<team-name>"
+    }
+  ]
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2008 |
+| Custom-Status-Message | team list is retrieved |
+
+<br>
+<br>
+
+### **Boss** - Get Team detail
+
+#### Request
+##### URL
+
+```http
+POST /api/boss/team/{team_id}
+```
+
+#### Response
+
+##### Data
+```json
+{
+"team_id": "<team-id>,
+"project_id": "<project-id>",
+"team_name": "<team-name>",
+"team_info": "<team-info>",
+"created_at": "<date-time>",
+"updated_at": "<date-time>",
+"team_members": [
+  {"user_id": "<user-id>"}
+  ]
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2009 |
+| Custom-Status-Message | single team data is retrieved |
+
+<br>
+<br>
 
 ### **Boss** - Create a new project
 
@@ -217,9 +281,6 @@ POST /api/boss/project/add
 <br>
 <br>
 
-
-
-
 ### **Boss** - Assign a project to a team
 #### Request
 ##### URL
@@ -243,9 +304,6 @@ POST /api/boss/project/{project_id}/assign
 
 <br>
 <br>
-
-
-
 
 ### **Boss** - Add member to a team
 #### Request
@@ -271,8 +329,6 @@ POST /api/boss/team/{team_id}/assign
 
 <br>
 <br>
-
-
 
 ### **Project Manager** - Add log a project
 
@@ -300,8 +356,6 @@ POST /api/project_manager/project/log/{team_id}/{project_id}/add
 
 <br>
 <br>
-
-
 
 ### **Project Manager** - Add assignment to a user (employee)
 #### Request

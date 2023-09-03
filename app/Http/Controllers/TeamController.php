@@ -42,4 +42,22 @@ class TeamController extends Controller
       $response=new Response(null,200);
       return ResponseStatus::set_status($response,"user-assign-success");
     }
+    
+    public function team_list(Request $request){
+      $team=Team::select("team_id","team_name")
+                 ->orderByDesc("updated_at")
+                 ->simplePaginate(10);
+      $response=new Response($team,200);
+      return ResponseStatus::set_status($response,"team-list");
+    }
+    
+    public function single_team(Request $request,$team_id){
+      $single_team=Team::where("team_id",$team_id)->first();
+      $team_member=TeamMember::where("team_id",$team_id)
+                             ->select("user_id")
+                             ->get();
+      $single_team["team_members"]=$team_member;
+      $response=new Response($single_team,200);
+      return ResponseStatus::set_status($response,"single-team");
+    }
 }
