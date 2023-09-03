@@ -1,5 +1,5 @@
 
-# Project Title
+# Office Management System
 
 A brief description of what this project does and who it's for
 
@@ -86,7 +86,7 @@ To log in to the API endpoint using cURL, you can use the following command:
 ##### URL
 
 ```http
-POST http://127.0.0.1:8000/api/login
+POST /api/login
 ```
 ##### Data
 ```json
@@ -125,6 +125,8 @@ POST /api/boss/
 POST /api/project_manager/
 POST /api/employee/
 ```
+<br>
+<br>
 
 
 
@@ -196,10 +198,12 @@ POST /api/boss/project/add
 ```json
 {
 	"project_name": "<project-name>",
-	"project_info": "<project-information>"
+	"project_info": "<project-information>",
+     "project_status":"<project-status>"
 }
 ```
-**<project-name> must be unique**
+**<project-name> must be unique** . **<project-status>** is optional . **<project-status>** = **initiate** , **pending** , **completed** , **dropped**
+
 <br>
 
 #### Response
@@ -303,11 +307,13 @@ POST /api/project_manager/assignment/{team_id}/{project_id}/add
 ##### Data
 ```json
 {
-	"worker_id": "<worker-id>",
-	"assignment_name": "<assignment-name>",
-	"assignment_info": "<assignment-info>",
+	"worker_id": "9a071436-d6ab-4530-aee2-b5ca9d2ce28f",
+	"assignment_name": "Rebuild it",
+	"assignment_info": "As soon as possible",
 	"assignment_status": "initiate",
-	"extra":<json-data>
+	"extra": {
+		"title": "I love you very much"
+	}
 }
 ```
 **assignment_status** and **extra**   are optional fields
