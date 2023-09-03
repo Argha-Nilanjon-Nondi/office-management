@@ -114,7 +114,7 @@ Now set the token in request header for further api calls
 ##### Header
 | Name | Value |
 | ----- | ---- |
-| Authorization | Bearer "<token-string>" |
+| Authorization | Bearer token-string |
 
 The following urls require **Authorization** header:
 ```http
