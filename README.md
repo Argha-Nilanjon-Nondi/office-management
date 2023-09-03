@@ -139,9 +139,9 @@ POST /api/admin/user/add
 ##### Data
 ```json
 {
-"email": "<user-email>",
-"username": "<user-name>",
-"role": "<user-role>"
+"email":"<user-email>",
+"username":"<user-name>",
+"role":"<user-role>"
 }
 ```
 role can be **boss** , **project_manager** and **employee**
@@ -170,12 +170,11 @@ POST /api/boss/team/add
 ##### Data
 ```json
 {
-	"team_name": "<team-name>",
-	"team_info": "<team-information>"
+"team_name":"<team-name>",
+"team_info":"<team-information>"
 }
 ```
 **<team-name> must be unique**
-<br>
 
 #### Response
 ##### Header
@@ -183,6 +182,8 @@ POST /api/boss/team/add
 | ----- | ---- |
 | Custom-Status-Code | 2002 |
 | Custom-Status-Message | team is created |
+<br>
+<br>
 
 
 
@@ -197,14 +198,12 @@ POST /api/boss/project/add
 ##### Data
 ```json
 {
-	"project_name": "<project-name>",
-	"project_info": "<project-information>",
-     "project_status":"<project-status>"
+"project_name": "<project-name>",
+"project_info": "<project-information>",
+"project_status":"<project-status>"
 }
 ```
 **<project-name> must be unique** . **<project-status>** is optional . **<project-status>** = **initiate** , **pending** , **completed** , **dropped**
-
-<br>
 
 #### Response
 ##### Header
@@ -213,11 +212,13 @@ POST /api/boss/project/add
 | Custom-Status-Code | 2003 |
 | Custom-Status-Message | project is created |
 
+<br>
+<br>
+
 
 
 
 ### **Boss** - Assign a project to a team
-
 #### Request
 ##### URL
 
@@ -227,11 +228,9 @@ POST /api/boss/project/{project_id}/assign
 ##### Data
 ```json
 {
-	"team_id": "<team-id>"
+"team_id": "<team-id>"
 }
 ```
-
-<br>
 
 #### Response
 ##### Header
@@ -240,10 +239,13 @@ POST /api/boss/project/{project_id}/assign
 | Custom-Status-Code | 2004 |
 | Custom-Status-Message | project is assigned to the team |
 
+<br>
+<br>
+
+
 
 
 ### **Boss** - Add member to a team
-
 #### Request
 ##### URL
 
@@ -253,7 +255,7 @@ POST /api/boss/team/{team_id}/assign
 ##### Data
 ```json
 {
-	"user_id": "<user-id>"
+"user_id": "<user-id>"
 }
 ```
 **<user-id>** must be the userid of employee and project_manager
@@ -266,6 +268,8 @@ POST /api/boss/team/{team_id}/assign
 | Custom-Status-Code | 2005 |
 | Custom-Status-Message | user is assigned to the team |
 
+<br>
+<br>
 
 
 
@@ -280,12 +284,11 @@ POST /api/project_manager/project/log/{team_id}/{project_id}/add
 ##### Data
 ```json
 {
-	"progress_info": "<log-text>",
-	"extra":<json-data>
+"progress_info": "<log-text>",
+"extra":<json-data>
 }
 ```
 **extra** is a optional field
-<br>
 
 #### Response
 ##### Header
@@ -294,10 +297,12 @@ POST /api/project_manager/project/log/{team_id}/{project_id}/add
 | Custom-Status-Code | 2006 |
 | Custom-Status-Message | project log is stored |
 
+<br>
+<br>
+
 
 
 ### **Project Manager** - Add assignment to a user (employee)
-
 #### Request
 ##### URL
 
@@ -307,17 +312,14 @@ POST /api/project_manager/assignment/{team_id}/{project_id}/add
 ##### Data
 ```json
 {
-	"worker_id": "9a071436-d6ab-4530-aee2-b5ca9d2ce28f",
-	"assignment_name": "Rebuild it",
-	"assignment_info": "As soon as possible",
-	"assignment_status": "initiate",
-	"extra": {
-		"title": "I love you very much"
-	}
+"worker_id": "9a071436-d6ab-4530-aee2-b5ca9d2ce28f",
+"assignment_name": "Rebuild it",
+"assignment_info": "As soon as possible",
+"assignment_status": "initiate",
+"extra":{ <json-data> }
 }
 ```
 **assignment_status** and **extra**   are optional fields
-<br>
 
 #### Response
 ##### Header
