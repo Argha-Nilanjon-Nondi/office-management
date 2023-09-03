@@ -154,7 +154,7 @@ role can be **boss** , **project_manager** and **employee**
 | Custom-Status-Code | 2001 |
 | Custom-Status-Message | user is created |
 
-A email will be sent to **<user-email>** which contains password
+A email will be sent to **user-email** which contains password
 <br>
 <br>
 
@@ -175,7 +175,7 @@ POST /api/boss/team/add
 "team_info":"<team-information>"
 }
 ```
-**<team-name> must be unique**
+**team-name must be unique**
 
 #### Response
 ##### Header
@@ -183,6 +183,7 @@ POST /api/boss/team/add
 | ----- | ---- |
 | Custom-Status-Code | 2002 |
 | Custom-Status-Message | team is created |
+
 <br>
 <br>
 
@@ -204,7 +205,7 @@ POST /api/boss/project/add
 "project_status":"<project-status>"
 }
 ```
-**<project-name> must be unique** . **<project-status>** is optional . **<project-status>** = **initiate** , **pending** , **completed** , **dropped**
+**project-name must be unique** . **project-status** is optional . **project-status** = **initiate** , **pending** , **completed** , **dropped**
 
 #### Response
 ##### Header
@@ -259,7 +260,7 @@ POST /api/boss/team/{team_id}/assign
 "user_id": "<user-id>"
 }
 ```
-**<user-id>** must be the userid of employee and project_manager
+**user-id** must be the userid of employee and project_manager
 
 #### Response
 ##### Header
