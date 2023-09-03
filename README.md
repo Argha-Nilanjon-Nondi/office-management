@@ -74,7 +74,8 @@ Set this request header for all api call :
 | Content-Type | application/json |
 | Accept | application/json |
 
-
+<br>
+<br>
 
 
 
@@ -259,7 +260,6 @@ POST /api/boss/team/{team_id}/assign
 }
 ```
 **<user-id>** must be the userid of employee and project_manager
-<br>
 
 #### Response
 ##### Header
