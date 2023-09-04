@@ -477,7 +477,7 @@ POST /api/project_manager/assignment/{team_id}/{project_id}/add
 "assignment_name": "<assignment-name>",
 "assignment_info": "<assignment-info>",
 "assignment_status": "<assignment-status>",
-"extra":{ "<json-data>"" }
+"extra":{ "<json-data>" }
 }
 ```
 **"assignment_status"** and **"extra"**   are optional fields
