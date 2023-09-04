@@ -1,13 +1,98 @@
 
 # Office Management System
 
-A brief description of what this project does and who it's for
+The **Office Management System** is a **Laravel-based** project that has admin, boss, project manager, and employee roles. The system helps perform day-to-day activities of an office, including team management, task management, project management, assignment management,and user management
 
+<br>
+<br>
+
+## Feature
+Actually the project is not ready . I had to leave it in the midway because of my HSC-2024 examination.
+So I am not sure about this .
+
+<br>
+<br>
+<br>
+
+## Installation
+Run all migrations
 ```bash
 php artisan migrate
 ```
+<br>
 
+Set up a **mailtrap** account and see there docs for laravel integration
+Save .env file 
 
+```env
+APP_NAME=Office_Management
+APP_ENV=local
+APP_KEY=base64:or2JJVkslXEwrK7hs/WNfB3dhEVculsnK7hQbc/FxZg=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=office_management
+DB_USERNAME=root
+DB_PASSWORD=
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=database
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=<mailtrap-username>
+MAIL_PASSWORD=<mailtrap-password>
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_HOST=
+PUSHER_PORT=443
+PUSHER_SCHEME=https
+PUSHER_APP_CLUSTER=mt1
+
+VITE_APP_NAME="${APP_NAME}"
+VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+VITE_PUSHER_HOST="${PUSHER_HOST}"
+VITE_PUSHER_PORT="${PUSHER_PORT}"
+VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+```
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
 
 
 ## Setup an Admin
@@ -492,3 +577,18 @@ POST /api/project_manager/assignment/{team_id}/{project_id}/add
 <br>
 <br>
 <br>
+
+<br>
+<br>
+<br>
+
+## Acknowledgements
+I would like to acknowledge that during the development of this project, I received valuable coding assistance from AI and chatbot services. The services that contributed to my coding process include:
+
+- [chat.openai.com](https://chat.openai.com/): This AI-powered chatbot service provided me with suggestions, explanations, and code snippets that helped me overcome coding challenges in various parts of the project.
+
+- [perplexity.ai](https://perplexity.ai/): I utilized the capabilities of perplexity.ai to refine my code by evaluating its readability and complexity, ensuring that the codebase follows best practices.
+
+These AI and chatbot services significantly enhanced my productivity and problem-solving capabilities. While the assistance from these services played a role in my development process, I reviewed, customized, and integrated all code in this repository to ensure its correctness and alignment with the project's goals.
+
+I extend my gratitude to the developers and teams behind chat.openai.com and perplexity.ai for creating tools that provide innovative solutions for coding challenges.
