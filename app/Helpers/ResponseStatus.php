@@ -47,13 +47,17 @@ class ResponseStatus {
       "code" => 2009,
       "msg" => "single team data is retrieved"
     ],
-        "project-list"=> [
+    "project-list"=> [
       "code" => 2010,
       "msg" => "project list is retrieved"
     ],
     "single-project"=> [
       "code" => 2011,
       "msg" => "single project data is retrieved"
+    ],
+    "project-log-list"=> [
+      "code" => 2012,
+      "msg" => "project log list is retrieved"
     ],
     "username-invalid" => [
       "code" => 3000,

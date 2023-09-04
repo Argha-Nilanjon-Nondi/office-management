@@ -51,6 +51,7 @@ Route::prefix('project_manager')->middleware(['auth:sanctum', 'role:project_mana
 
   Route::prefix('project')->group(function () {
     Route::prefix('log')->group(function () {
+      Route::get('/{project_id}', [ProjectController::class, 'project_log_list']);
       Route::post('/{team_id}/{project_id}/add', [ProjectController::class, 'add_log']);
     });
   });

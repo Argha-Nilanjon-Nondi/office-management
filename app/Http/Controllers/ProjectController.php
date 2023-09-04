@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use App\Helpers\ResponseStatus;
 use App\Models\Project;
 use App\Models\ProjectHistory;
@@ -78,6 +79,17 @@ class ProjectController extends Controller
       $single_project["team_id"]=$team_id["team_id"];
       $response=new Response($single_project,200);
       return ResponseStatus::set_status($response,"single-project");
+    }
+    
+    public function project_log_list(Request $request,$project_id)
+    {
+      $project=ProjectHistory::where("project_id",$project_id)
+                              ->select("history_id", DB::raw("CONCAT(SUBSTRING_INDEX(progress_info, ' ', 10),'.....') as progress_info"),"created_at","updated_at")
+                              ->orderByDesc("updated_at")
+                              ->simplePaginate(10);
+                              
+      $response=new Response($project,200);
+      return ResponseStatus::set_status($response,"project-log-list");
     }
     
 }

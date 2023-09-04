@@ -60,6 +60,9 @@ php artisan db:seed AssignRoleSeeder
 ```
 
 
+<br>
+<br>
+<br>
 
 
 ## API Reference
@@ -424,6 +427,42 @@ POST /api/project_manager/project/log/{team_id}/{project_id}/add
 <br>
 <br>
 
+### **Project Manager** - Get project log list 
+
+#### Request
+##### URL
+
+```http
+GET /api/project_manager/project/log/{project_id
+```
+
+#### Response
+
+##### Data
+```json
+{
+"data": [
+    {
+    "project_id": "<project-id>",
+    "history_id": "<history-id>",
+    "progress_info": "<progress-info>",
+    "created_at": "<date-time>",
+    "updated_at": "<date-time>"
+    }
+  ],
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2012 |
+| Custom-Status-Message | project log list is retrieved |
+
+<br>
+<br>
+
 ### **Project Manager** - Add assignment to a user (employee)
 #### Request
 ##### URL
@@ -434,11 +473,11 @@ POST /api/project_manager/assignment/{team_id}/{project_id}/add
 ##### Data
 ```json
 {
-"worker_id": "9a071436-d6ab-4530-aee2-b5ca9d2ce28f",
-"assignment_name": "Rebuild it",
-"assignment_info": "As soon as possible",
-"assignment_status": "initiate",
-"extra":{ <json-data> }
+"worker_id": "<worker-id>",
+"assignment_name": "<assignment-name>",
+"assignment_info": "<assignment-info>",
+"assignment_status": "<assignment-status>",
+"extra":{ "<json-data>"" }
 }
 ```
 **"assignment_status"** and **"extra"**   are optional fields
@@ -450,3 +489,6 @@ POST /api/project_manager/assignment/{team_id}/{project_id}/add
 | Custom-Status-Code | 2007 |
 | Custom-Status-Message | assignment is added |
 
+<br>
+<br>
+<br>
