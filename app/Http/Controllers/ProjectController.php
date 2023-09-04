@@ -60,4 +60,24 @@ class ProjectController extends Controller
       return ResponseStatus::set_status($response,"project-log-stored");
     }
     
+    public function project_list(Request $request)
+    {
+      $project=Project::select("project_id","project_name")
+                 ->orderByDesc("updated_at")
+                 ->simplePaginate(10);
+      $response=new Response($project,200);
+      return ResponseStatus::set_status($response,"project-list");
+    }
+    
+    public function single_project(Request $request,$project_id)
+    {
+      $single_project=Project::where("project_id",$project_id)->first();
+      $team_id=Team::where("project_id",$project_id)
+                    ->select("team_id")
+                    ->first();
+      $single_project["team_id"]=$team_id["team_id"];
+      $response=new Response($single_project,200);
+      return ResponseStatus::set_status($response,"single-project");
+    }
+    
 }

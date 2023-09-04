@@ -190,7 +190,7 @@ POST /api/boss/team/add
 ##### URL
 
 ```http
-POST /api/boss/team/
+GET /api/boss/team/
 ```
 
 #### Response
@@ -223,7 +223,7 @@ POST /api/boss/team/
 ##### URL
 
 ```http
-POST /api/boss/team/{team_id}
+GET /api/boss/team/{team_id}
 ```
 
 #### Response
@@ -231,7 +231,7 @@ POST /api/boss/team/{team_id}
 ##### Data
 ```json
 {
-"team_id": "<team-id>,
+"team_id": "<team-id>",
 "project_id": "<project-id>",
 "team_name": "<team-name>",
 "team_info": "<team-info>",
@@ -277,6 +277,73 @@ POST /api/boss/project/add
 | ----- | ---- |
 | Custom-Status-Code | 2003 |
 | Custom-Status-Message | project is created |
+
+<br>
+<br>
+
+### **Boss** - Get project list
+
+#### Request
+##### URL
+
+```http
+GET /api/boss/project/
+```
+
+#### Response
+
+##### Data
+```json
+{
+"data": [
+    {
+    "project_id": "<project-id>",
+    "project_name": "<project-name>"
+    }
+  ],
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2010 |
+| Custom-Status-Message | project list is retrieved |
+
+<br>
+<br>
+
+### **Boss** - Get project detail
+
+#### Request
+##### URL
+
+```http
+GET /api/boss/project/{project_id}
+```
+
+#### Response
+
+##### Data
+```json
+{
+"project_id": "<project-id>",
+"project_name": "<project-name>",
+"project_info": "<project-info>",
+"project_status": "<project-status>",
+"created_at": "<date-time>",
+"updated_at": "<date-time>",
+"team_id": "<team-id>"
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2011 |
+| Custom-Status-Message | single project data is retrieved |
 
 <br>
 <br>
