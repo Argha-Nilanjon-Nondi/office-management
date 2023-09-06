@@ -621,7 +621,7 @@ GET /api/project_manager/assignment/{assignment_id}
 ##### Data
 ```json
 {
-  "assignment_id": "<>",
+  "assignment_id": "<assignment-id>",
   "team_id": "<team-id>",
   "project_id": "<project-id>",
   "assigner_id": "<assigner-id>",
