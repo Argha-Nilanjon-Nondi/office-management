@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\EmployeeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -64,7 +65,14 @@ Route::prefix('project_manager')->middleware(['auth:sanctum', 'role:project_mana
 
 });
 
-
+Route::prefix('employee')->middleware(['auth:sanctum', 'role:employee'])->group(function () {
+  
+  Route::prefix('assignment')->group(function () {
+    Route::get('/', [EmployeeController::class, 'assignment_list']);
+    Route::get('/{assignment_id}', [EmployeeController::class, 'single_assignment']);
+  });
+  
+});
 
 /*
 Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
