@@ -29,10 +29,25 @@ class AssignmentController extends Controller
       "extra" => $extra
     ]);
     
-    
     $response=new Response(null,200);
     return ResponseStatus::set_status($response,"assignment-create-success");
-  
-
   }
+  
+  public function assignment_list(Request $request,$team_id,$project_id)
+  {
+    $assignments=ProjectAssignment::where(["team_id"=>$team_id,"project_id"=>$project_id])
+                 ->select("assignment_id","assignment_name")
+                 ->orderByDesc("updated_at")
+                 ->simplePaginate(10);
+    $response=new Response($assignments,200);
+    return ResponseStatus::set_status($response,"assignment-list");
+  }
+  
+  public function single_assignment(Request $request,$assignment_id)
+  {
+    $assignment=ProjectAssignment::where("assignment_id",$assignment_id)->first();
+    $response=new Response($assignment,200);
+    return ResponseStatus::set_status($response,"single-assignment");
+  }
+  
 }

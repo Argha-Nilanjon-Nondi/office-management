@@ -305,7 +305,7 @@ GET /api/boss/team/
 <br>
 <br>
 
-### **Boss** - Get Team detail
+### **Boss** - Get single Team detail
 
 #### Request
 ##### URL
@@ -402,7 +402,7 @@ GET /api/boss/project/
 <br>
 <br>
 
-### **Boss** - Get project detail
+### **Boss** - Get single project detail
 
 #### Request
 ##### URL
@@ -578,9 +578,76 @@ POST /api/project_manager/assignment/{team_id}/{project_id}/add
 <br>
 <br>
 
+### **Project Manager** - Get Assignment list
+#### Request
+##### URL
+
+```http
+GET /api/project_manager/assignment/{team_id}/{project_id}/
+```
+
+#### Response
+##### Data
+```json
+{
+"data": [
+    {
+      "assignment_id": "<assignment-id>",
+      "assignment_name": "<assignment-name>"
+    }
+  ]
+}
+```
+##### Header
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2014 |
+| Custom-Status-Message | assignment list is retrieved |
+
 <br>
 <br>
 <br>
+
+### **Project Manager** - Get single Assignment details
+#### Request
+##### URL
+
+```http
+GET /api/project_manager/assignment/{assignment_id}
+```
+
+
+#### Response
+##### Data
+```json
+{
+  "assignment_id": "<>",
+  "team_id": "<team-id>",
+  "project_id": "<project-id>",
+  "assigner_id": "<assigner-id>",
+  "worker_id": "<worker-id>",
+  "assignment_name": "<assignment-name>",
+  "assignment_info": "<assignment-info>",
+  "assignment_status": "<assignment-status>",
+  "extra": {"<json-data>"},
+  "created_at": "<date-time>",
+  "updated_at": "<date-time>"
+}
+```
+##### Header
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2013 |
+| Custom-Status-Message | single assignment data is retrieved |
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
 
 ## Acknowledgements
 I would like to acknowledge that during the development of this project, I received valuable coding assistance from AI and chatbot services. The services that contributed to my coding process include:

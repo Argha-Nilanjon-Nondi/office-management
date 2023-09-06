@@ -57,6 +57,8 @@ Route::prefix('project_manager')->middleware(['auth:sanctum', 'role:project_mana
   });
   
   Route::prefix('assignment')->group(function () {
+    Route::get('/{team_id}/{project_id}', [AssignmentController::class, 'assignment_list']);
+    Route::get('/{assignment_id}', [AssignmentController::class, 'single_assignment']);
     Route::post('/{team_id}/{project_id}/add', [AssignmentController::class, 'add']);
   });
 

@@ -31,33 +31,42 @@ class ResponseStatus {
       "code" => 2005,
       "msg" => "user is assigned to the team"
     ],
-    "project-log-stored"=> [
+    "project-log-stored" => [
       "code" => 2006,
       "msg" => "project log is stored"
     ],
-    "assignment-create-success"=> [
+    "assignment-create-success" => [
       "code" => 2007,
       "msg" => "assignment is added"
     ],
-    "team-list"=> [
+    "team-list" => [
       "code" => 2008,
       "msg" => "team list is retrieved"
     ],
-    "single-team"=> [
+    "single-team" => [
       "code" => 2009,
       "msg" => "single team data is retrieved"
     ],
-    "project-list"=> [
+    "project-list" => [
       "code" => 2010,
       "msg" => "project list is retrieved"
     ],
-    "single-project"=> [
+    "single-project" => [
       "code" => 2011,
       "msg" => "single project data is retrieved"
     ],
-    "project-log-list"=> [
+    "project-log-list" => [
       "code" => 2012,
       "msg" => "project log list is retrieved"
+    ],
+
+    "single-assignment" => [
+      "code" => 2013,
+      "msg" => "single assignment data is retrieved"
+    ],
+    "assignment-list" => [
+      "code" => 2014,
+      "msg" => "assignment list is retrieved"
     ],
     "username-invalid" => [
       "code" => 3000,
