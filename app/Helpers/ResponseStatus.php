@@ -68,6 +68,10 @@ class ResponseStatus {
       "code" => 2014,
       "msg" => "assignment list is retrieved"
     ],
+        "user-profile" => [
+      "code" => 2015,
+      "msg" => "user profile is retrieved"
+    ],
     "username-invalid" => [
       "code" => 3000,
       "msg" => "username is not valid"

@@ -14,6 +14,14 @@ use App\Models\Role;
 
 class UserController extends Controller
 {
+  
+  public function profile(Request $request)
+  {
+    $response=new Response(null,200);
+    return ResponseStatus::set_status($response,"user-profile");
+
+  }
+  
   public function login(Request $request) 
   {
     $credentials = $request->only('email', 'password');

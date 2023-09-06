@@ -18,7 +18,10 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::post("login", [UserController::class, "login"]);
+Route::prefix('/')->group(function (){
+  Route::post("login", [UserController::class, "login"]);
+  Route::middleware("auth:sanctum")->get("profile",[UserController::class,"profile"]);
+});
 
 Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
 
@@ -46,7 +49,6 @@ Route::prefix('boss')->middleware(['auth:sanctum', 'role:boss'])->group(function
   });
 
 });
-
 
 Route::prefix('project_manager')->middleware(['auth:sanctum', 'role:project_manager'])->group(function () {
 
