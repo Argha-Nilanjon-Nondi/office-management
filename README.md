@@ -21,7 +21,7 @@ php artisan migrate
 ```
 <br>
 
-Set up a **mailtrap** account and see there docs for laravel integration
+Set up a **mailtrap** account and see there docs for laravel integration . <br>
 Save .env file 
 
 ```env
@@ -497,7 +497,7 @@ POST /api/project_manager/project/log/{team_id}/{project_id}/add
 ```json
 {
 "progress_info": "<log-text>",
-"extra":<json-data>
+"extra":{"<json-data>"}
 }
 ```
 **"extra"** is a optional field
