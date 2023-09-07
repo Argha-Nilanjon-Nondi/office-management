@@ -207,9 +207,9 @@ Now set the token in request header for further api calls
 
 The following urls require **Authorization** header:
 ```http
-/api/profile/
-/api/logout/
-/api/setting/
+ /api/profile/
+ /api/logout/
+ /api/setting/
 /api/admin/
 /api/boss/
 /api/project_manager/
