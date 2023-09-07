@@ -7,6 +7,15 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\EmployeeController;
+
+/*
+use App\Models\Team;
+ 
+$team_id="f4599db6-4960-11ee-a18e-327acb8e6551";
+$team = Team::find($team_id);
+$team->team_name = 'Alpha Hi9090';
+$team->save();
+*/
 /*
 |--------------------------------------------------------------------------
 | API Routes

@@ -57,6 +57,7 @@ class TeamController extends Controller
                              ->select("user_id")
                              ->get();
       $single_team["team_members"]=$team_member;
+      $single_team["audits"]=$single_team->audits;
       $response=new Response($single_team,200);
       return ResponseStatus::set_status($response,"single-team");
     }

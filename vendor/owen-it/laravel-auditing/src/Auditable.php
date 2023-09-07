@@ -8,6 +8,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Auth;
 use OwenIt\Auditing\Contracts\AttributeEncoder;
 use OwenIt\Auditing\Contracts\AttributeRedactor;
 use OwenIt\Auditing\Contracts\Resolver;
@@ -349,7 +350,8 @@ trait Auditable
      */
     public function transformAudit(array $data): array
     {
-        return $data;
+      $data['user_type'] = Auth::user()->roles[0]["name"];
+      return $data;
     }
 
     /**

@@ -13,6 +13,7 @@ use App\Jobs\QueueEmailPassword;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\TeamMember;
+use App\Models\Team;
 use App\Models\ProjectAssignment;
 
 class UserController extends Controller
@@ -20,6 +21,13 @@ class UserController extends Controller
   
   public function profile(Request $request)
   {
+    /*
+    $team_id="f4599db6-4960-11ee-a18e-327acb8e6551";
+    $team = Team::find($team_id);
+    $team->team_name = 'Alpha ppplolo';
+    $team->save();
+    */
+    
     $user_id=$request->user()->id;
     $user_data=User::where("id",$user_id)
                      ->first();
