@@ -20,7 +20,19 @@ use App\Http\Controllers\EmployeeController;
 
 Route::prefix('/')->group(function (){
   Route::post("login", [UserController::class, "login"]);
-  Route::middleware("auth:sanctum")->get("profile",[UserController::class,"profile"]);
+  
+  Route::middleware("auth:sanctum")->group(function (){
+     Route::get("profile",[UserController::class,"profile"]);
+     Route::post("logout",[UserController::class,"logout"]);
+     Route::prefix('/setting')->group(function (){
+         Route::prefix('/token')->group(function (){
+            Route::get("/",[UserController::class,"token_list"]);
+            Route::delete("/delete/{token_id}",[UserController::class,"token_delete"]);
+         });
+     });
+     
+  });
+   
 });
 
 Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
@@ -52,7 +64,14 @@ Route::prefix('boss')->middleware(['auth:sanctum', 'role:boss'])->group(function
 
 Route::prefix('project_manager')->middleware(['auth:sanctum', 'role:project_manager'])->group(function () {
 
+  Route::prefix('team')->group(function () {
+    Route::get('/', [TeamController::class, 'team_list']);
+    Route::get('/{team_id}', [TeamController::class, 'single_team']);
+  });
+
   Route::prefix('project')->group(function () {
+    Route::get('/', [ProjectController::class, 'project_list']);
+    Route::get("/{project_id}",[ProjectController::class,"single_project"]);
     Route::prefix('log')->group(function () {
       Route::get('/{project_id}', [ProjectController::class, 'project_log_list']);
       Route::post('/{team_id}/{project_id}/add', [ProjectController::class, 'add_log']);
@@ -68,6 +87,16 @@ Route::prefix('project_manager')->middleware(['auth:sanctum', 'role:project_mana
 });
 
 Route::prefix('employee')->middleware(['auth:sanctum', 'role:employee'])->group(function () {
+  
+  Route::prefix('project')->group(function () {
+    Route::get('/', [ProjectController::class, 'project_list']);
+    Route::get("/{project_id}",[ProjectController::class,"single_project"]);
+  });
+  
+  Route::prefix('team')->group(function () {
+    Route::get('/', [TeamController::class, 'team_list']);
+    Route::get('/{team_id}', [TeamController::class, 'single_team']);
+  });
   
   Route::prefix('assignment')->group(function () {
     Route::get('/', [EmployeeController::class, 'assignment_list']);

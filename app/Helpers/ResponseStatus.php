@@ -68,9 +68,21 @@ class ResponseStatus {
       "code" => 2014,
       "msg" => "assignment list is retrieved"
     ],
-        "user-profile" => [
+    "user-profile" => [
       "code" => 2015,
       "msg" => "user profile is retrieved"
+    ],
+    "logout-success" => [
+      "code" => 2016,
+      "msg" => "user is logout"
+    ],
+    "token-list" => [
+      "code" => 2017,
+      "msg" => "token list is retrieved"
+    ],
+    "token-delete" => [
+      "code" => 2018,
+      "msg" => "token is deleted"
     ],
     "username-invalid" => [
       "code" => 3000,

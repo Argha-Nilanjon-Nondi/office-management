@@ -207,14 +207,125 @@ Now set the token in request header for further api calls
 
 The following urls require **Authorization** header:
 ```http
-POST /api/admin/
-POST /api/boss/
-POST /api/project_manager/
-POST /api/employee/
+/api/profile/
+/api/logout/
+/api/setting/
+/api/admin/
+/api/boss/
+/api/project_manager/
+/api/employee/
 ```
 <br>
 <br>
 
+### **User** - Profile of a user
+
+#### Request
+##### URL
+
+```http
+GET /api/profile
+```
+
+#### Response
+##### Header
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2015 |
+| Custom-Status-Message | user profile is retrieved |
+
+##### Data
+```json
+{
+  "id": "<user-id>",
+  "name": "<user-name>",
+  "email": "<user-email>",
+  "email_verified_at": null,
+  "created_at": "<date-time>",
+  "updated_at": "<date-time>",
+  "teams": [
+    {
+      "team_id": "<team-id>"
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "<project-id>"
+    }
+  ],
+  "role": "<user-role>"
+}
+```
+<br>
+<br>
+
+### **User** - Logout a user
+
+#### Request
+##### URL
+
+```http
+GET /api/logout
+```
+
+#### Response
+##### Header
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2016 |
+| Custom-Status-Message | user is logout |
+
+<br>
+<br>
+
+### **User** - Access token list
+
+#### Request
+##### URL
+
+```http
+GET /api/setting/token
+```
+
+#### Response
+##### Header
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2017 |
+| Custom-Status-Message | token list is retrieved |
+
+##### Data
+```json
+[
+  {
+    "id":"<token-id>",
+    "name": "<device-name>",
+    "created_at": "<date-time>",
+    "last_used_at": "<date-time>"
+  }
+]
+```
+<br>
+<br>
+
+### **User** - Delete access token
+
+#### Request
+##### URL
+
+```http
+GET /api/setting/token/delete/{token_id}
+```
+
+#### Response
+##### Header
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2018 |
+| Custom-Status-Message | token is deleted |
+
+<br>
+<br>
 
 ### **Admin** - Add User
 
@@ -485,6 +596,142 @@ POST /api/boss/team/{team_id}/assign
 <br>
 <br>
 
+### **Project Manager** - Get team list
+
+#### Request
+##### URL
+
+```http
+GET /api/project_manager/team/
+```
+
+#### Response
+
+##### Data
+```json
+{
+"data":[
+    {
+    "team_id": "<team-id>",
+    "team_name": "<team-name>"
+    }
+  ]
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2008 |
+| Custom-Status-Message | team list is retrieved |
+
+<br>
+<br>
+
+### **Project Manager** - Get single Team detail
+
+#### Request
+##### URL
+
+```http
+GET /api/project_manager/team/{team_id}
+```
+
+#### Response
+
+##### Data
+```json
+{
+"team_id": "<team-id>",
+"project_id": "<project-id>",
+"team_name": "<team-name>",
+"team_info": "<team-info>",
+"created_at": "<date-time>",
+"updated_at": "<date-time>",
+"team_members": [
+  {"user_id": "<user-id>"}
+  ]
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2009 |
+| Custom-Status-Message | single team data is retrieved |
+
+<br>
+<br>
+
+### **Project Manager** - Get project list
+
+#### Request
+##### URL
+
+```http
+GET /api/project_manager/project/
+```
+
+#### Response
+
+##### Data
+```json
+{
+"data": [
+    {
+    "project_id": "<project-id>",
+    "project_name": "<project-name>"
+    }
+  ],
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2010 |
+| Custom-Status-Message | project list is retrieved |
+
+<br>
+<br>
+
+### **Project Manager** - Get single project detail
+
+#### Request
+##### URL
+
+```http
+GET /api/project_manager/project/{project_id}
+```
+
+#### Response
+
+##### Data
+```json
+{
+"project_id": "<project-id>",
+"project_name": "<project-name>",
+"project_info": "<project-info>",
+"project_status": "<project-status>",
+"created_at": "<date-time>",
+"updated_at": "<date-time>",
+"team_id": "<team-id>"
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2011 |
+| Custom-Status-Message | single project data is retrieved |
+
+<br>
+<br>
+
 ### **Project Manager** - Add log a project
 
 #### Request
@@ -645,6 +892,142 @@ GET /api/project_manager/assignment/{assignment_id}
 <br>
 
 <br>
+<br>
+<br>
+
+### **Employee** - Get team list
+
+#### Request
+##### URL
+
+```http
+GET /api/employee/team/
+```
+
+#### Response
+
+##### Data
+```json
+{
+"data":[
+    {
+    "team_id": "<team-id>",
+    "team_name": "<team-name>"
+    }
+  ]
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2008 |
+| Custom-Status-Message | team list is retrieved |
+
+<br>
+<br>
+
+### **Employee** - Get single Team detail
+
+#### Request
+##### URL
+
+```http
+GET /api/employee/team/{team_id}
+```
+
+#### Response
+
+##### Data
+```json
+{
+"team_id": "<team-id>",
+"project_id": "<project-id>",
+"team_name": "<team-name>",
+"team_info": "<team-info>",
+"created_at": "<date-time>",
+"updated_at": "<date-time>",
+"team_members": [
+  {"user_id": "<user-id>"}
+  ]
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2009 |
+| Custom-Status-Message | single team data is retrieved |
+
+<br>
+<br>
+
+### **Employee** - Get project list
+
+#### Request
+##### URL
+
+```http
+GET /api/employee/project/
+```
+
+#### Response
+
+##### Data
+```json
+{
+"data": [
+    {
+    "project_id": "<project-id>",
+    "project_name": "<project-name>"
+    }
+  ],
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2010 |
+| Custom-Status-Message | project list is retrieved |
+
+<br>
+<br>
+
+### **Employee** - Get single project detail
+
+#### Request
+##### URL
+
+```http
+GET /api/employee/project/{project_id}
+```
+
+#### Response
+
+##### Data
+```json
+{
+"project_id": "<project-id>",
+"project_name": "<project-name>",
+"project_info": "<project-info>",
+"project_status": "<project-status>",
+"created_at": "<date-time>",
+"updated_at": "<date-time>",
+"team_id": "<team-id>"
+}
+```
+
+##### Header
+
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2011 |
+| Custom-Status-Message | single project data is retrieved |
+
 <br>
 <br>
 
