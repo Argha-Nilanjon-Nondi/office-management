@@ -11,10 +11,11 @@ use Laravel\Sanctum\NewAccessToken;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
+use OwenIt\Auditing\Contracts\Auditable;
 
-
-class User extends Authenticatable
+class User extends Authenticatable implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
     use HasRoles,HasApiTokens,HasUuids, HasFactory, Notifiable;
 
     /**
@@ -69,4 +70,12 @@ class User extends Authenticatable
 
         return new NewAccessToken($token,$hashedToken);
     } 
+    
+    public static function boot() {
+    parent::boot();
+
+    static::creating(function ($model) {
+      $model->id = Str::uuid();
+    });
+  }
 }

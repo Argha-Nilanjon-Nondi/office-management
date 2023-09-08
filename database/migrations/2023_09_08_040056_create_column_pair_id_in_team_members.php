@@ -12,8 +12,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->uuid('id')->change();
+        Schema::table('team_members', function (Blueprint $table) {
+            $table->uuid("pair_id")->primary()->default(DB::raw('(UUID())'));;
         });
     }
 
@@ -22,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('column_pair_id_in_team_members');
     }
 };

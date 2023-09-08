@@ -350,8 +350,14 @@ trait Auditable
      */
     public function transformAudit(array $data): array
     {
-      $data['user_type'] = Auth::user()->roles[0]["name"];
+      $role=Auth::user()->roles[0]["name"];
+      if($role){
+      $data['user_type'] = $role;
       return $data;
+      }
+      else{
+        return $data;
+      }
     }
 
     /**
