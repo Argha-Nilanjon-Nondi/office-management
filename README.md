@@ -1153,6 +1153,40 @@ GET /api/employee/assignment/{assignment_id
 
 
 ## Acknowledgements
+
+### Documentation:
+- [Laravel Documentation](https://laravel.com/)
+- [Laravel Auditing Documentation](https://laravel-auditing.com/)
+- [Spatie Laravel Permission Documentation](https://spatie.be/docs/laravel-permission/v5/basic-usage/teams-permissions)
+
+<br>
+
+### Stackoverflow
+- [Stack Overflow - MySQLi Real Connect Error](https://stackoverflow.com/questions/29928109/getting-error-mysqlireal-connect-hy000-2002-no-such-file-or-directory-wh)
+- [Stack Overflow - No Such File or Directory Error](https://stackoverflow.com/questions/46407490/no-such-file-or-directory-or-no-such-host-is-known-when-running-migrations)
+- [Stack Overflow - Laravel File Put Contents Exclusive Locks](https://stackoverflow.com/questions/47921408/laravel-file-put-contents-exclusive-locks-are-not-supported-for-this-stream)
+- [Stack Overflow - MySQL InnoDB Not Starting](https://stackoverflow.com/questions/8829793/mysql-not-starting-innodb-not-available)
+- [Stack Overflow - Access Denied for User](https://stackoverflow.com/questions/17975120/access-denied-for-user-rootlocalhost-using-password-yes-no-privileges)
+- [Stack Overflow - How to Drop Database](https://stackoverflow.com/questions/2046681/how-to-drop-database)
+- [Stack Overflow - Laravel "No Role Named Admin"](https://stackoverflow.com/questions/60710341/there-is-no-role-named-admin-laravel)
+- [Stack Overflow - Role or Permission Should Use Guard](https://stackoverflow.com/questions/50984164/the-given-role-or-permission-should-use-guard-instead-of-web-laravel)
+- [Stack Overflow - phpMyAdmin Failed to Set Session Cookie](https://stackoverflow.com/questions/49811804/phpmyadmin-failed-to-set-session-cookie-maybe-you-are-using-http-instead-of-htt)
+- [Stack Overflow - Using UUID as Default Value in Laravel Migration](https://stackoverflow.com/questions/54866478/using-uuid-as-default-value-in-a-laravel-migration)
+- [Stack Overflow - Properly Handle Errors in Laravel API](https://stackoverflow.com/questions/51065170/laravel-api-how-to-properly-handle-errors)
+
+<br>
+
+### Others
+- [Implement UUID Primary Key in Laravel](https://dev.to/adnanbabakan/implement-uuid-primary-key-in-laravel-and-its-benefits-55o3)
+- [Linode Community - MySQL Aria Control File](https://www.linode.com/community/questions/17989/why-cant-mysql-access-the-aria-control-file)
+- [Install phpMyAdmin in Termux (Android)](https://www.easymux.in/how-to-install-phpmyadmin-in-termux-android/amp/)
+- [GitHub - Spatie Laravel Permission Discussions](https://github.com/spatie/laravel-permission/discussions/1947)
+- [Freek.dev - When to Use Gate::after in Laravel](https://freek.dev/1325-when-to-use-gateafter-in-laravel)
+- [Install phpMyAdmin in Termux (Android)](https://www.easymux.in/how-to-install-phpmyadmin-in-termux-android/amp/)
+- [Mailtrap.io - Send Email in Laravel](https://mailtrap.io/blog/send-email-in-laravel/)
+- [Mailtrap.io - Send Email in Laravel (Google AMP)](https://www.google.com/amp/s/mailtrap.io/blog/send-email-in-laravel/amp/)
+
+<br>
 I would like to acknowledge that during the development of this project, I received valuable coding assistance from AI and chatbot services. The services that contributed to my coding process include:
 
 - [chat.openai.com](https://chat.openai.com/): This AI-powered chatbot service provided me with suggestions, explanations, and code snippets that helped me overcome coding challenges in various parts of the project.

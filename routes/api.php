@@ -29,8 +29,8 @@ $team->save();
 */
 
 Route::prefix('/')->group(function (){
-  Route::post("login", [UserController::class, "login"]);
   
+  Route::post("login", [UserController::class, "login"]);
   Route::middleware("auth:sanctum")->group(function (){
      Route::get("profile",[UserController::class,"profile"]);
      Route::post("logout",[UserController::class,"logout"]);
@@ -49,7 +49,6 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(functi
 
   Route::prefix('user')->group(function () {
     Route::post('add', [UserController::class, 'add']);
-    Route::post('assign', [TeamController::class, 'assign']);
   });
   
   Route::get('/history/{object_id}', [AdminController::class, 'object_history_log']);
