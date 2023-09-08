@@ -1159,7 +1159,6 @@ GET /api/employee/assignment/{assignment_id
 - [Laravel Auditing Documentation](https://laravel-auditing.com/)
 - [Spatie Laravel Permission Documentation](https://spatie.be/docs/laravel-permission/v5/basic-usage/teams-permissions)
 
-<br>
 
 ### Stackoverflow
 - [Stack Overflow - MySQLi Real Connect Error](https://stackoverflow.com/questions/29928109/getting-error-mysqlireal-connect-hy000-2002-no-such-file-or-directory-wh)
@@ -1174,7 +1173,6 @@ GET /api/employee/assignment/{assignment_id
 - [Stack Overflow - Using UUID as Default Value in Laravel Migration](https://stackoverflow.com/questions/54866478/using-uuid-as-default-value-in-a-laravel-migration)
 - [Stack Overflow - Properly Handle Errors in Laravel API](https://stackoverflow.com/questions/51065170/laravel-api-how-to-properly-handle-errors)
 
-<br>
 
 ### Others
 - [Implement UUID Primary Key in Laravel](https://dev.to/adnanbabakan/implement-uuid-primary-key-in-laravel-and-its-benefits-55o3)
