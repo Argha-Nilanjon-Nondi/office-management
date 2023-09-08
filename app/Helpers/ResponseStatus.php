@@ -84,6 +84,10 @@ class ResponseStatus {
       "code" => 2018,
       "msg" => "token is deleted"
     ],
+    "object-history-list" => [
+      "code" => 2019,
+      "msg" => "history object list is retrieved"
+    ],
     "username-invalid" => [
       "code" => 3000,
       "msg" => "username is not valid"

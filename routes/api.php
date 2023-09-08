@@ -7,6 +7,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AdminController;
 
 /*
 use App\Models\Team;
@@ -50,6 +51,8 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(functi
     Route::post('add', [UserController::class, 'add']);
     Route::post('assign', [TeamController::class, 'assign']);
   });
+  
+  Route::get('/history/{object_id}', [AdminController::class, 'object_history_log']);
 
 });
 

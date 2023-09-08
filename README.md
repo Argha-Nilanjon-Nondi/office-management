@@ -356,6 +356,50 @@ A email will be sent to **"user-email"** which contains password
 <br>
 <br>
 
+### **Admin** - Log list of a object (Record)
+
+#### Request
+##### URL
+
+```http
+GET /api/admin/history/{object_id}/?page={page_no}
+```
+
+#### Response
+##### Data
+```json
+"data": [
+    {
+      "user_type": "<action-performer-type>",
+      "user_id": "<action-performer-id>",
+      "event": "<crud-operation-name>",
+      "auditable_type": "<model-name>",
+      "auditable_id": "<object-id>",
+      "old_values": [],
+      "new_values": {
+        "team_id": "<team-id>",
+        "user_id": "<user-id>",
+        "pair_id": "<object-id>",
+        "updated_at": "<date-time>",
+        "created_at": "<date-time>"
+      },
+      "ip_address": "<action-performer-ip>",
+      "url": "<url-where-action-occured>",
+      "user_agent": "<action-performer-device>",
+      "created_at": "<date-time>",
+      "updated_at": "<date-time>"
+    }
+  ],
+```
+##### Header
+| Name | Value |
+| ----- | ---- |
+| Custom-Status-Code | 2019 |
+| Custom-Status-Message | history object list is retrieved |
+
+<br>
+<br>
+
 ### **Boss** - Create a new team
 
 #### Request
