@@ -103,7 +103,7 @@ Run this command to generate nonce and hash
 php artisan blockchain:block-hash
 ```
 You can change the number of record to be hashed by 
-addding more **$this->make_hash();** in **handle()** of **app/Console/Commands/CommandBlockHash.php**
+addding more **$this->make_hash();** in **handle()** method of **app/Console/Commands/CommandBlockHash.php**
 
 <br>
 <br>
