@@ -11,11 +11,9 @@ use Laravel\Sanctum\NewAccessToken;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class User extends Authenticatable implements Auditable
+class User extends Authenticatable
 {
-    use \OwenIt\Auditing\Auditable;
     use HasRoles,HasApiTokens,HasUuids, HasFactory, Notifiable;
 
     /**

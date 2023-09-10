@@ -90,10 +90,24 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 <br>
 <br>
 
-<br>
-<br>
-<br>
 
+## Set up Blockchain
+Run this command to mint genesis block in **audits** table
+```bash
+php artisan db:seed GenesisAuditSeeder
+```
+
+Run this command to generate nonce and hash 
+- This will generate nonce for first 5 record
+```bash
+php artisan blockchain:block-hash
+```
+You can change the number of record to be hashed by 
+addding more **$this->make_hash();** in **handle()** of **app/Console/Commands/CommandBlockHash.php**
+
+<br>
+<br>
+<br>
 
 ## Setup an Admin
 You have to setup admin manually to use the project initially
@@ -387,7 +401,10 @@ GET /api/admin/history/{object_id}/?page={page_no}
       "url": "<url-where-action-occured>",
       "user_agent": "<action-performer-device>",
       "created_at": "<date-time>",
-      "updated_at": "<date-time>"
+      "updated_at": "<date-time>",
+      "nonce": 21105,
+      "current_hash": "0000e45fc9d105eeaeaab65d00709dc766bae4a2bbee00b848f8974c34577e53",
+      "previous_hash": "000019827377f3631ae9514c2257b6f8bee90130df8aade53d63e93ec7e456af"
     }
   ],
 ```
